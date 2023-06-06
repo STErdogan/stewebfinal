@@ -1,0 +1,7 @@
+{
+  "name": "stewebfinal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
