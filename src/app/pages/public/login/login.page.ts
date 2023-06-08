@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
       .then(() => {
         this.afAuth.authState.subscribe((res) => {
           console.log('Giriş Başarılı', res);
-          this.route.navigate(['/profile']);
+          this.route.navigate(['/boards']);
         });
       })
       .catch((error) => console.error(error));
@@ -106,15 +106,16 @@ export class LoginPage implements OnInit {
               role: '',
               banned: false,
             });
-            console.log('Kullanıcı Belgesi Oluşturuldu.');
+            console.log('Kullanıcı Bilgisi Oluşturuldu.');
           } else {
             const x = JSON.stringify(res);
             const userData = JSON.parse(x);
 
             if (!userData.completion) {
-              this.route.navigate(['/profile-completion']);
+              /* this.route.navigate(['/profile-completion']); */ // profile tamamlanmadıysa yönlenecek sayfa
+              this.route.navigate(['boards']);
             } else {
-              this.route.navigate(['/profile']);
+              this.route.navigate(['/boards']);
             }
           }
         });

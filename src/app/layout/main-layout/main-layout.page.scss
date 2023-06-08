@@ -1,0 +1,25 @@
+ion-content {
+  --background: var(--if-blue);
+}
+
+.main-navbar ion-toolbar {
+  --background: var(--if-orange);
+  --color: var(--if-bg);
+}
+ion-menu ion-header ion-toolbar {
+  --background: var(--if-orange);
+  --color: var(--if-bg);
+}
+
+ion-menu-button {
+  color: var(--main-bg);
+}
+
+ion-buttons .btn {
+  box-shadow: none;
+  outline: none;
+  color: var(--main-bg);
+}
+ion-title {
+  color: var(--main-bg);
+}
