@@ -1,0 +1,33 @@
+ion-content {
+  --background: var(--if-blue);
+}
+
+#recaptcha-verifier {
+  display: none;
+}
+
+.auth-btns {
+  bottom: 140px;
+  left: 14px;
+  right: 14px;
+  position: absolute;
+}
+ion-button {
+  --background: var(--if-orange);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+ion-input {
+  color: var(--if-main-bg);
+}
+p {
+  color: var(--if-orange);
+  font-family: "Shadows Into Light", cursive;
+}
+h5 {
+  color: var(--if-orange);
+  font-family: "Shadows Into Light", cursive;
+}
+ion-label {
+  color: var(--if-orange);
+  font-family: "Shadows Into Light", cursive;
+}

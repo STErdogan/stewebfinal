@@ -1,0 +1,139 @@
+<ion-content class="ion-padding">
+  <div id="recaptcha-verifier"></div>
+
+  <button type="button" class="btn btn-black mb-1" routerLink="/home">
+    <ion-icon name="arrow-back-outline" style="color: #ffffff"></ion-icon>
+  </button>
+
+  <div *ngIf="mode === 'tlf'">
+    <h5 class="text-center my-3">Telefon No ile Giriş</h5>
+
+    <div class="form-field mb-3">
+      <ion-label position="stacked">Tel No</ion-label>
+      <ion-input
+        type="tel"
+        name="phonenbr"
+        maxlength="11"
+        [(ngModel)]="phoneNumber"
+        placeholder="0555-555-55-55"
+        [disabled]="step > 0"
+      ></ion-input>
+    </div>
+
+    <div class="form-field" *ngIf="step > 0">
+      <ion-label position="stacked">Doğrulama Kodu</ion-label>
+      <code-input
+        (codeChanged)="onCodeChanged($event)"
+        (codeCompleted)="onCodeCompleted($event)"
+      >
+      </code-input>
+    </div>
+
+    <ion-button
+      class="shadow"
+      expand="block"
+      class="bottom-fixed-btn"
+      *ngIf="step === 0"
+      [disabled]="phoneNumber === ''"
+      (click)="SendOTP()"
+      >Giriş</ion-button
+    >
+    <ion-button
+      class="shadow"
+      expand="block"
+      class="bottom-fixed-btn"
+      *ngIf="step === 1"
+      (click)="verifyCode()"
+      >OTP'yi doğrulayın</ion-button
+    >
+  </div>
+
+  <div *ngIf="mode === 'email'">
+    <ion-segment [(ngModel)]="emailMode">
+      <ion-segment-button value="signin">
+        <ion-label>Giriş</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="signup">
+        <ion-label>Kayıt Ol</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <div *ngIf="emailMode === 'signin'">
+      <h3>Email/Password ile Giriş</h3>
+      <div class="form-field mb-3">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="example@mail.com"
+        ></ion-input>
+      </div>
+      <div class="form-field mb-3">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="***********"
+        ></ion-input>
+      </div>
+      <div class="bottom-fixed-btn">
+        <ion-button expand="block" (click)="Login()">Giriş</ion-button>
+      </div>
+    </div>
+    <div *ngIf="emailMode === 'signup'">
+      <h3>Email/Password ile Yeni Kayıt</h3>
+      <div class="form-field mb-3">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          placeholder="example@mail.com"
+        ></ion-input>
+      </div>
+      <div class="form-field mb-3">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="***********"
+        ></ion-input>
+      </div>
+      <div class="bottom-fixed-btn">
+        <ion-button expand="block" (click)="SignUp()"
+          >Kullanıcı Oluştur</ion-button
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-btns">
+    <ion-button
+      class="shadow"
+      expand="block"
+      (click)="mode = 'email'"
+      *ngIf="mode !== 'email'"
+    >
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      Email/Password ile Giriş</ion-button
+    >
+    <ion-button
+      class="shadow"
+      expand="block"
+      (click)="mode = 'tlf'"
+      *ngIf="mode !== 'tlf'"
+      ><ion-icon slot="start" name="call-outline"></ion-icon>Telefon No ile
+      Giriş</ion-button
+    >
+    <ion-button class="shadow" expand="block">
+      <ion-icon slot="start" name="logo-google"></ion-icon>Google ile
+      Giriş</ion-button
+    >
+    <ion-button class="shadow" expand="block"
+      ><ion-icon slot="start" name="logo-apple"></ion-icon>Apple ile
+      Giriş</ion-button
+    >
+  </div>
+</ion-content>

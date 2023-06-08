@@ -1,27 +1,35 @@
-#container {
+ion-content {
+  --background: var(--if-blue);
+}
+ion-button {
+  --background: var(--if-orange);
+  margin-bottom: 24px;
+}
+p {
   text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 15px;
+  padding: auto 24px;
+  color: var(--if-orange);
+}
+.logo-box {
+  text-align: center;
+  img {
+    height: 200px;
+  }
+  position: relative;
+}
+.logo-edu {
+  text-align: center;
+  img {
+    height: 120px;
+  }
+  position: relative;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+.home-img {
+  text-align: center;
+  position: relative;
+  img {
+    height: 50hv;
+  }
 }
